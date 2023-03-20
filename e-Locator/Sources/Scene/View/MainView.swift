@@ -13,7 +13,7 @@ class MainView: UIView {
     // MARK: - Properties
     
     var tableViewHeightConstraint: Constraint!
-    var tableViewRowHeight: CGFloat = UIScreen.main.bounds.height / 14
+    var tableViewRowHeight: CGFloat = UIScreen.main.bounds.height / 13
     
     // MARK: - Views
     
@@ -52,6 +52,11 @@ class MainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
                 
     // MARK: - Settings
     
@@ -80,6 +85,7 @@ class MainView: UIView {
     
     private func setupView() {
         backgroundColor = .mainBackgroundColor
+        mainTableView.rowHeight = tableViewRowHeight
     }
     
     // MARK: - Methods
