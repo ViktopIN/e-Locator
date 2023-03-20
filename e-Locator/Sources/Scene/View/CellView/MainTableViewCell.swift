@@ -111,9 +111,9 @@ class MainTableViewCell: UITableViewCell {
     
     // MARK: - Methods
     
-    func configurationCell(image: UIImage?, nameLabelText: String, distanceText: String) {
-        avatarImageView.image = image
-        nameLabel.text = nameLabelText
-        distanceLabel.text = distanceText
+    func configurationCell(with data: UnitDistanceModel) {
+        avatarImageView.image = data.image
+        nameLabel.text = data.name
+        distanceLabel.text = data.distanceDescription
     }
 }

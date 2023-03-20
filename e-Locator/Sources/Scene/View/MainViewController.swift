@@ -57,7 +57,9 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseIdentifier,for: indexPath) as! MainTableViewCell
         cell.selectionStyle = .none
-        cell.configurationCell(image: UIImage(systemName: "book"), nameLabelText: "Cock Sucker MotherFucker", distanceText: "500 m to dick")
+        let model = UnitDistanceModel(name: "Cock Sucker MotherFucker", image: UIImage(systemName: "book"), distanceDescription: "500 m to dick")
+        cell.configurationCell(with: model)
+        
         return cell
     }
 }
