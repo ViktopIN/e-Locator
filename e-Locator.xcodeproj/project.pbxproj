@@ -10,7 +10,9 @@
 		8424884229C8551200EEBA8B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884129C8551200EEBA8B /* MainView.swift */; };
 		8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884329C8563800EEBA8B /* UIStackView+Extension.swift */; };
 		8424884629C8570300EEBA8B /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884529C8570300EEBA8B /* DynamicLabel.swift */; };
-		8424884829C8588A00EEBA8B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884729C8588A00EEBA8B /* UIView+Extension.swift */; };
+		84248C5B29C859FD00EEBA8B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248C5A29C859FD00EEBA8B /* UIColor+Extensions.swift */; };
+		84248C5E29C8612400EEBA8B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84248C5D29C8612400EEBA8B /* SnapKit */; };
+		84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248C5F29C871F300EEBA8B /* UIView+Extensions.swift */; };
 		8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */; };
 		8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC2329C4D2D2009DF73F /* MainViewController.swift */; };
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
@@ -21,7 +23,8 @@
 		8424884129C8551200EEBA8B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8424884329C8563800EEBA8B /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		8424884529C8570300EEBA8B /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
-		8424884729C8588A00EEBA8B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		84248C5A29C859FD00EEBA8B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		84248C5F29C871F300EEBA8B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		8444EC1C29C4D2D2009DF73F /* e-Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8444EC2329C4D2D2009DF73F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84248C5E29C8612400EEBA8B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +67,13 @@
 				8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */,
 				8444EC2329C4D2D2009DF73F /* MainViewController.swift */,
 				8424884129C8551200EEBA8B /* MainView.swift */,
-				8424884729C8588A00EEBA8B /* UIView+Extension.swift */,
+				84248C5A29C859FD00EEBA8B /* UIColor+Extensions.swift */,
+				8424884329C8563800EEBA8B /* UIStackView+Extension.swift */,
 				8424884529C8570300EEBA8B /* DynamicLabel.swift */,
 				8444EC2829C4D2D3009DF73F /* Assets.xcassets */,
 				8444EC2A29C4D2D3009DF73F /* LaunchScreen.storyboard */,
 				8444EC2D29C4D2D3009DF73F /* Info.plist */,
-				8424884329C8563800EEBA8B /* UIStackView+Extension.swift */,
+				84248C5F29C871F300EEBA8B /* UIView+Extensions.swift */,
 			);
 			path = "e-Locator";
 			sourceTree = "<group>";
@@ -89,6 +94,9 @@
 			dependencies = (
 			);
 			name = "e-Locator";
+			packageProductDependencies = (
+				84248C5D29C8612400EEBA8B /* SnapKit */,
+			);
 			productName = "e-Locator";
 			productReference = 8444EC1C29C4D2D2009DF73F /* e-Locator.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 8444EC1329C4D2D2009DF73F;
+			packageReferences = (
+				84248C5C29C8612400EEBA8B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 8444EC1D29C4D2D2009DF73F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,11 +154,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8424884829C8588A00EEBA8B /* UIView+Extension.swift in Sources */,
 				8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */,
+				84248C5B29C859FD00EEBA8B /* UIColor+Extensions.swift in Sources */,
 				8424884629C8570300EEBA8B /* DynamicLabel.swift in Sources */,
 				8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */,
 				8424884229C8551200EEBA8B /* MainView.swift in Sources */,
+				84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */,
 				8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +368,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84248C5C29C8612400EEBA8B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84248C5D29C8612400EEBA8B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84248C5C29C8612400EEBA8B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8444EC1429C4D2D2009DF73F /* Project object */;
 }
