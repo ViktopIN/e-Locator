@@ -10,6 +10,11 @@ import SnapKit
 
 class MainView: UIView {
     
+    // MARK: - Properties
+    
+    var tableViewHeightConstraint: Constraint!
+    var tableViewRowHeight: CGFloat = UIScreen.main.bounds.height / 14
+    
     // MARK: - Views
     
     private lazy var mainScrollView: UIScrollView = {
@@ -26,9 +31,11 @@ class MainView: UIView {
         tableView.isScrollEnabled = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsVerticalScrollIndicator = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.reuseIdentifier)
         tableView.backgroundColor = .clear
         tableView.layer.cornerRadius = 20
+        tableView.separatorInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
         return tableView
     }()
     
@@ -45,7 +52,7 @@ class MainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+                
     // MARK: - Settings
     
     private func setupHierarchy() {
@@ -60,14 +67,14 @@ class MainView: UIView {
         containerView.fillSuperview()
         containerView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(mainTableView)
+            make.height.equalTo(mainTableView.snp.height).offset(30)
         }
         
         mainTableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(40)
+            make.top.equalToSuperview().inset(20)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.9)
-            make.height.equalTo(800)
+            tableViewHeightConstraint = make.height.equalTo(0).constraint
         }
     }
     

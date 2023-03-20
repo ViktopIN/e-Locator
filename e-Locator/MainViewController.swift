@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class MainViewController: UIViewController {
-    
+        
     // MARK: - Views
     
-    let mainView = MainView(frame: .zero)
+    private var mainView = MainView(frame: .zero)
     
     // MARK: - Lifecycle
     
@@ -48,22 +49,16 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        15
+        let numbersOfRows = 4
+        mainView.tableViewHeightConstraint.update(offset: mainView.tableViewRowHeight * CGFloat(numbersOfRows))
+        return numbersOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as UITableViewCell
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = "Cock"
-        content.image = UIImage(systemName: "books.vertical")
-        content.secondaryText = "Dick"
-        cell.contentConfiguration = content
-        
-        cell.backgroundColor = .gray.withAlphaComponent(0.3)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseIdentifier,for: indexPath) as! MainTableViewCell
+        cell.selectionStyle = .none
+        cell.configurationCell(image: UIImage(systemName: "book"), nameLabelText: "Cock Sucker MotherFucker", distanceText: "500 m to dick")
         return cell
     }
-    
-    
 }
 
