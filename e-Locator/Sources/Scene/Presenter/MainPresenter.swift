@@ -13,14 +13,19 @@ class MainPresenter: MainPresenterProtocol {
     
     private unowned var view: MainViewProtocol
     private var modelInteractor: UserDistanceModelInteractorProtocol
-    private var locationService: LocationService
+    private var locationService: LocationServiceProtocol
+    private var networkService: NetworkServiceProtocol
     
     // MARK: - Initialiser
     
-    required init(view: MainViewProtocol) {
+    required init(
+        view: MainViewProtocol,
+        serviceContainer: ServiceContainerProtocol
+    ) {
         self.view = view
-        modelInteractor = UserDistanceModelInteractor()
-        locationService = LocationService()
+        modelInteractor = serviceContainer.interactorService
+        locationService = serviceContainer.locationService
+        networkService = serviceContainer.networkService
         locationService.delegate = self
     }
     
