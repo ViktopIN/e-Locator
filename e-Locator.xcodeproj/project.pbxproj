@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842490A029C9D70500EEBA8B /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */; };
+		842490A229C9D89800EEBA8B /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842490A129C9D89800EEBA8B /* URLSessionMock.swift */; };
 		8424884229C8551200EEBA8B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884129C8551200EEBA8B /* MainView.swift */; };
 		8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884329C8563800EEBA8B /* UIStackView+Extension.swift */; };
 		8424884629C8570300EEBA8B /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884529C8570300EEBA8B /* DynamicLabel.swift */; };
@@ -49,6 +51,8 @@
 		8424909729C9BF5900EEBA8B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		8424909A29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
 		8424909C29C9C22700EEBA8B /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
+		8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		842490A129C9D89800EEBA8B /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		8444EC1C29C4D2D2009DF73F /* e-Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8444EC2329C4D2D2009DF73F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,15 @@
 			path = ModuleBuilder;
 			sourceTree = "<group>";
 		};
+		8424909E29C9D6BE00EEBA8B /* MockService */ = {
+			isa = PBXGroup;
+			children = (
+				8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */,
+				842490A129C9D89800EEBA8B /* URLSessionMock.swift */,
+			);
+			path = MockService;
+			sourceTree = "<group>";
+		};
 		8444EC1329C4D2D2009DF73F = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +227,7 @@
 			children = (
 				8424908029C8CE8600EEBA8B /* Sources */,
 				8424907F29C8CE5000EEBA8B /* Resources */,
+				8424909E29C9D6BE00EEBA8B /* MockService */,
 			);
 			path = "e-Locator";
 			sourceTree = "<group>";
@@ -313,6 +327,8 @@
 				8424907929C881E800EEBA8B /* String+Extension.swift in Sources */,
 				8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */,
 				8424909B29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift in Sources */,
+				842490A229C9D89800EEBA8B /* URLSessionMock.swift in Sources */,
+				842490A029C9D70500EEBA8B /* URLSessionDataTaskMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
