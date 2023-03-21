@@ -17,7 +17,14 @@
 		8424907829C881E800EEBA8B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424907429C881E800EEBA8B /* UIImageView+Extension.swift */; };
 		8424907929C881E800EEBA8B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424907529C881E800EEBA8B /* String+Extension.swift */; };
 		8424907B29C881E800EEBA8B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424907729C881E800EEBA8B /* UIImage+Extension.swift */; };
-		8424908929C8CF1800EEBA8B /* UnitDistanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908829C8CF1800EEBA8B /* UnitDistanceModel.swift */; };
+		8424908929C8CF1800EEBA8B /* UserDistanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908829C8CF1800EEBA8B /* UserDistanceModel.swift */; };
+		8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */; };
+		8424909029C9BBDE00EEBA8B /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */; };
+		8424909429C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909329C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift */; };
+		8424909629C9BE8400EEBA8B /* UserDistanceModelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909529C9BE8400EEBA8B /* UserDistanceModelInteractor.swift */; };
+		8424909829C9BF5900EEBA8B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909729C9BF5900EEBA8B /* MainPresenter.swift */; };
+		8424909B29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909A29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift */; };
+		8424909D29C9C22700EEBA8B /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909C29C9C22700EEBA8B /* MainModuleBuilder.swift */; };
 		8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */; };
 		8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC2329C4D2D2009DF73F /* MainViewController.swift */; };
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
@@ -34,7 +41,14 @@
 		8424907429C881E800EEBA8B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8424907529C881E800EEBA8B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8424907729C881E800EEBA8B /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		8424908829C8CF1800EEBA8B /* UnitDistanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitDistanceModel.swift; sourceTree = "<group>"; };
+		8424908829C8CF1800EEBA8B /* UserDistanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistanceModel.swift; sourceTree = "<group>"; };
+		8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
+		8424909329C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistanceModelInteractorProtocol.swift; sourceTree = "<group>"; };
+		8424909529C9BE8400EEBA8B /* UserDistanceModelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistanceModelInteractor.swift; sourceTree = "<group>"; };
+		8424909729C9BF5900EEBA8B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		8424909A29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
+		8424909C29C9C22700EEBA8B /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
 		8444EC1C29C4D2D2009DF73F /* e-Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8444EC2329C4D2D2009DF73F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +100,7 @@
 		8424908229C8CEAF00EEBA8B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8424909929C9C1BB00EEBA8B /* ModuleBuilder */,
 				8424908429C8CECA00EEBA8B /* CustomViews */,
 				8424908329C8CEB700EEBA8B /* Extensions */,
 			);
@@ -116,6 +131,8 @@
 		8424908529C8CEE900EEBA8B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				8424908C29C9BB6600EEBA8B /* Protocols */,
+				8424908B29C9BB6000EEBA8B /* Presenter */,
 				8424908629C8CEEF00EEBA8B /* View */,
 				8424908A29C8CF1F00EEBA8B /* Model */,
 			);
@@ -143,9 +160,37 @@
 		8424908A29C8CF1F00EEBA8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8424908829C8CF1800EEBA8B /* UnitDistanceModel.swift */,
+				8424908829C8CF1800EEBA8B /* UserDistanceModel.swift */,
+				8424909529C9BE8400EEBA8B /* UserDistanceModelInteractor.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8424908B29C9BB6000EEBA8B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8424909729C9BF5900EEBA8B /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8424908C29C9BB6600EEBA8B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */,
+				8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */,
+				8424909329C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8424909929C9C1BB00EEBA8B /* ModuleBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				8424909A29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift */,
+				8424909C29C9C22700EEBA8B /* MainModuleBuilder.swift */,
+			);
+			path = ModuleBuilder;
 			sourceTree = "<group>";
 		};
 		8444EC1329C4D2D2009DF73F = {
@@ -251,16 +296,23 @@
 			files = (
 				8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */,
 				84248C6229C8804200EEBA8B /* MainTableViewCell.swift in Sources */,
+				8424909829C9BF5900EEBA8B /* MainPresenter.swift in Sources */,
 				84248C5B29C859FD00EEBA8B /* UIColor+Extensions.swift in Sources */,
+				8424909029C9BBDE00EEBA8B /* MainPresenterProtocol.swift in Sources */,
 				8424907B29C881E800EEBA8B /* UIImage+Extension.swift in Sources */,
 				8424907829C881E800EEBA8B /* UIImageView+Extension.swift in Sources */,
+				8424909429C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift in Sources */,
 				8424884629C8570300EEBA8B /* DynamicLabel.swift in Sources */,
 				8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */,
+				8424909629C9BE8400EEBA8B /* UserDistanceModelInteractor.swift in Sources */,
 				8424884229C8551200EEBA8B /* MainView.swift in Sources */,
-				8424908929C8CF1800EEBA8B /* UnitDistanceModel.swift in Sources */,
+				8424909D29C9C22700EEBA8B /* MainModuleBuilder.swift in Sources */,
+				8424908929C8CF1800EEBA8B /* UserDistanceModel.swift in Sources */,
+				8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */,
 				84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */,
 				8424907929C881E800EEBA8B /* String+Extension.swift in Sources */,
 				8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */,
+				8424909B29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

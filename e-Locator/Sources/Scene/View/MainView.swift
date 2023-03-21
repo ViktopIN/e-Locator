@@ -26,7 +26,7 @@ class MainView: UIView {
     
     private lazy var containerView = UIView(background: .clear)
             
-    private var mainTableView: UITableView = {
+     var mainTableView: UITableView = {
         var tableView = UITableView()
         tableView.isScrollEnabled = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,15 +86,5 @@ class MainView: UIView {
     private func setupView() {
         backgroundColor = .mainBackgroundColor
         mainTableView.rowHeight = tableViewRowHeight
-    }
-    
-    // MARK: - Methods
-    
-    func mainTableViewDataSource(_ dataSource: UITableViewDataSource) {
-        mainTableView.dataSource = dataSource
-    }
-    
-    func mainTableViewDelegate(_ delegate: UITableViewDelegate) {
-        mainTableView.delegate = delegate
     }
 }

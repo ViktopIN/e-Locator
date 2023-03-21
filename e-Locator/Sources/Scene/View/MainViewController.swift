@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     // MARK: - Views
     
     private var mainView = MainView(frame: .zero)
+    var presenter: MainPresenterProtocol!
     
     // MARK: - Lifecycle
     
@@ -39,7 +40,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupView() {
-        mainView.mainTableViewDataSource(self)
+        mainView.mainTableView.dataSource = self
         let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.black]
         title = "e-Locator"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -49,18 +50,29 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numbersOfRows = UnitDistanceModel.getModel().count
+        let numbersOfRows = presenter.amountOfTableViewCell()
         mainView.tableViewHeightConstraint.update(offset: mainView.tableViewRowHeight * CGFloat(numbersOfRows))
         return numbersOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseIdentifier,for: indexPath) as! MainTableViewCell
-        let model = UnitDistanceModel.getModel()
+        
+        guard let data = presenter.tableViewDataProvide() else { return cell}
+        cell.configurationCell(with: data[indexPath.row])
         cell.selectionStyle = .none
-        cell.configurationCell(with: model[indexPath.row])
         
         return cell
+    }
+}
+
+// MARK: - Extenstions -
+
+extension MainViewController: MainViewProtocol {
+    func reloadMainTableView() {
+        DispatchQueue.main.async { [unowned self] in 
+            mainView.mainTableView.reloadData()
+        }
     }
 }
 
