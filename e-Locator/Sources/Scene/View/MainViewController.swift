@@ -49,15 +49,17 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numbersOfRows = 4
+        let numbersOfRows = UnitDistanceModel.getModel().count
         mainView.tableViewHeightConstraint.update(offset: mainView.tableViewRowHeight * CGFloat(numbersOfRows))
         return numbersOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseIdentifier,for: indexPath) as! MainTableViewCell
+        let model = UnitDistanceModel.getModel()
         cell.selectionStyle = .none
-        cell.configurationCell(image: UIImage(systemName: "book"), nameLabelText: "Cock Sucker MotherFucker", distanceText: "500 m to dick")
+        cell.configurationCell(with: model[indexPath.row])
+        
         return cell
     }
 }

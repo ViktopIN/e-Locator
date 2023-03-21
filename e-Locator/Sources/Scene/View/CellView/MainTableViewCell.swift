@@ -19,6 +19,8 @@ class MainTableViewCell: UITableViewCell {
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
@@ -27,7 +29,7 @@ class MainTableViewCell: UITableViewCell {
     private lazy var nameLabel: DynamicLabel = {
         let label = DynamicLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
@@ -35,7 +37,7 @@ class MainTableViewCell: UITableViewCell {
     private lazy var distanceLabel: DynamicLabel = {
         let label = DynamicLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: 14)
         label.textColor = .lightGray
         return label
     }()
@@ -80,7 +82,7 @@ class MainTableViewCell: UITableViewCell {
         super.layoutSubviews()
         DispatchQueue.main.async { [unowned self] in
             favoriteMarkButton.layer.cornerRadius = favoriteMarkButton.bounds.height / 2
-            avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
+            avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2
         }
     }
 
@@ -111,9 +113,9 @@ class MainTableViewCell: UITableViewCell {
     
     // MARK: - Methods
     
-    func configurationCell(image: UIImage?, nameLabelText: String, distanceText: String) {
-        avatarImageView.image = image
-        nameLabel.text = nameLabelText
-        distanceLabel.text = distanceText
+    func configurationCell(with data: UnitDistanceModel) {
+        avatarImageView.image = data.image
+        nameLabel.text = data.name
+        distanceLabel.text = data.distanceDescription
     }
 }
