@@ -113,7 +113,7 @@ class MainTableViewCell: UITableViewCell {
     
     // MARK: - Methods
     
-    func configurationCell(with data: UnitDistanceModel) {
+    func configurationCell(with data: UserDistanceModel) {
         avatarImageView.image = data.image
         nameLabel.text = data.name
         distanceLabel.text = data.distanceDescription

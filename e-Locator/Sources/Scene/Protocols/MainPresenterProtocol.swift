@@ -9,6 +9,6 @@ import Foundation
 
 protocol MainPresenterProtocol: AnyObject {
     init(view: MainViewProtocol)
-    func amountOfTableViewCell()
-    func tableViewDataProvide()
+    func amountOfTableViewCell() -> Int
+    func tableViewDataProvide() -> [UserDistanceModel]
 }

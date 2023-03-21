@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     // MARK: - Views
     
     private var mainView = MainView(frame: .zero)
+    var presenter: MainPresenterProtocol!
     
     // MARK: - Lifecycle
     
@@ -49,16 +50,16 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numbersOfRows = UnitDistanceModel.getModel().count
+        let numbersOfRows = presenter.amountOfTableViewCell()
         mainView.tableViewHeightConstraint.update(offset: mainView.tableViewRowHeight * CGFloat(numbersOfRows))
         return numbersOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reuseIdentifier,for: indexPath) as! MainTableViewCell
-        let model = UnitDistanceModel.getModel()
+        let data = presenter.tableViewDataProvide()
+        cell.configurationCell(with: data[indexPath.row])
         cell.selectionStyle = .none
-        cell.configurationCell(with: model[indexPath.row])
         
         return cell
     }
