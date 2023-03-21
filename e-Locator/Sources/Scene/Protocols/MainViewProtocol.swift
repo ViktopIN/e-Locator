@@ -8,4 +8,5 @@
 import Foundation
 
 protocol MainViewProtocol: AnyObject {
+    func reloadMainTableView()
 }
