@@ -21,6 +21,7 @@
 		8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */; };
 		8424909029C9BBDE00EEBA8B /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */; };
 		8424909429C9BD7A00EEBA8B /* UnitDistanceModelInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909329C9BD7A00EEBA8B /* UnitDistanceModelInteractorProtocol.swift */; };
+		8424909629C9BE8400EEBA8B /* UnitDistanceModelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909529C9BE8400EEBA8B /* UnitDistanceModelInteractor.swift */; };
 		8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */; };
 		8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC2329C4D2D2009DF73F /* MainViewController.swift */; };
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
 		8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
 		8424909329C9BD7A00EEBA8B /* UnitDistanceModelInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitDistanceModelInteractorProtocol.swift; sourceTree = "<group>"; };
+		8424909529C9BE8400EEBA8B /* UnitDistanceModelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitDistanceModelInteractor.swift; sourceTree = "<group>"; };
 		8444EC1C29C4D2D2009DF73F /* e-Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8444EC2329C4D2D2009DF73F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8424908829C8CF1800EEBA8B /* UnitDistanceModel.swift */,
+				8424909529C9BE8400EEBA8B /* UnitDistanceModelInteractor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				8424909429C9BD7A00EEBA8B /* UnitDistanceModelInteractorProtocol.swift in Sources */,
 				8424884629C8570300EEBA8B /* DynamicLabel.swift in Sources */,
 				8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */,
+				8424909629C9BE8400EEBA8B /* UnitDistanceModelInteractor.swift in Sources */,
 				8424884229C8551200EEBA8B /* MainView.swift in Sources */,
 				8424908929C8CF1800EEBA8B /* UnitDistanceModel.swift in Sources */,
 				8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */,
