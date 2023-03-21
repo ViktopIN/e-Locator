@@ -26,16 +26,16 @@ class MainTableViewCell: UITableViewCell {
     
     private lazy var labelStack = UIStackView.configureStackView(with: .vertical)
     
-    private lazy var nameLabel: DynamicLabel = {
-        let label = DynamicLabel()
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
     
-    private lazy var distanceLabel: DynamicLabel = {
-        let label = DynamicLabel()
+    private lazy var distanceLabel: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14)
         label.textColor = .lightGray

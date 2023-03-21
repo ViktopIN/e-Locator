@@ -39,6 +39,15 @@ class MainView: UIView {
         return tableView
     }()
     
+    var statusLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -62,6 +71,7 @@ class MainView: UIView {
     
     private func setupHierarchy() {
         addSubview(mainScrollView)
+        addSubview(statusLabel)
         mainScrollView.addSubview(containerView)
         containerView.addSubview(mainTableView)
         
@@ -80,6 +90,12 @@ class MainView: UIView {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.9)
             tableViewHeightConstraint = make.height.equalTo(0).constraint
+        }
+        statusLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.9)
+            make.height.equalToSuperview().dividedBy(3)
         }
     }
     

@@ -9,4 +9,7 @@ import Foundation
 
 protocol MainViewProtocol: AnyObject {
     func reloadMainTableView()
+    func locationServicesRestrictedState()
+    func locationServicesNeededState()
+    func promptForAuthorization()
 }

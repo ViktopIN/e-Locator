@@ -1,5 +1,5 @@
 //
-//  LocationManager.swift
+//  LocationService.swift
 //  e-Locator
 //
 //  Created by Виктор on 21.03.2023.
@@ -8,11 +8,22 @@
 import CoreLocation
 import CoreMotion
 
+protocol LocationServiceDelegate: AnyObject {
+    func authorizationRestricted()
+    func authorizationUnknown()
+    func promptAuthorizationAction()
+    func didAuthorize()
+}
+
 final class LocationService: NSObject, CLLocationManagerDelegate {
     
     // MARK: - Properties
     
     private let locationManager = CLLocationManager()
+    weak var delegate: LocationServiceDelegate?
+    var currentUserLocation: CLLocation? {
+        return locationManager.location
+    }
 
     // MARK: - Initialiser
     
@@ -22,7 +33,6 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
-        locationManager.startUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
     }
     
@@ -41,17 +51,17 @@ final class LocationService: NSObject, CLLocationManagerDelegate {
         case .notDetermined:
             break
         case .restricted:
-            break
+            delegate?.authorizationRestricted()
         case .denied:
-            break
+            delegate?.promptAuthorizationAction()
         case .authorizedAlways:
-            break
+            delegate?.didAuthorize()
         case .authorizedWhenInUse:
-            break
+            delegate?.didAuthorize()
         case .authorized:
-            break
+            delegate?.didAuthorize()
         @unknown default:
-            break
+            delegate?.authorizationUnknown()
         }
     }
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8424884229C8551200EEBA8B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884129C8551200EEBA8B /* MainView.swift */; };
 		8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884329C8563800EEBA8B /* UIStackView+Extension.swift */; };
-		8424884629C8570300EEBA8B /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424884529C8570300EEBA8B /* DynamicLabel.swift */; };
 		84248C5B29C859FD00EEBA8B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248C5A29C859FD00EEBA8B /* UIColor+Extensions.swift */; };
 		84248C5E29C8612400EEBA8B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84248C5D29C8612400EEBA8B /* SnapKit */; };
 		84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248C5F29C871F300EEBA8B /* UIView+Extensions.swift */; };
@@ -27,7 +26,7 @@
 		8424909D29C9C22700EEBA8B /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909C29C9C22700EEBA8B /* MainModuleBuilder.swift */; };
 		842490A029C9D70500EEBA8B /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */; };
 		842490A229C9D89800EEBA8B /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842490A129C9D89800EEBA8B /* URLSessionMock.swift */; };
-		842490A529C9E96300EEBA8B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842490A429C9E96300EEBA8B /* LocationManager.swift */; };
+		842490A529C9E96300EEBA8B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842490A429C9E96300EEBA8B /* LocationService.swift */; };
 		8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */; };
 		8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC2329C4D2D2009DF73F /* MainViewController.swift */; };
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		8424884129C8551200EEBA8B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8424884329C8563800EEBA8B /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
-		8424884529C8570300EEBA8B /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
 		84248C5A29C859FD00EEBA8B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		84248C5F29C871F300EEBA8B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		84248C6129C8804200EEBA8B /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -54,7 +52,7 @@
 		8424909C29C9C22700EEBA8B /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
 		8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		842490A129C9D89800EEBA8B /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
-		842490A429C9E96300EEBA8B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		842490A429C9E96300EEBA8B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8444EC1C29C4D2D2009DF73F /* e-Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8444EC2329C4D2D2009DF73F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				8424909929C9C1BB00EEBA8B /* ModuleBuilder */,
-				8424908429C8CECA00EEBA8B /* CustomViews */,
 				8424908329C8CEB700EEBA8B /* Extensions */,
 			);
 			path = Helpers;
@@ -125,14 +122,6 @@
 				84248C5F29C871F300EEBA8B /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		8424908429C8CECA00EEBA8B /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				8424884529C8570300EEBA8B /* DynamicLabel.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		8424908529C8CEE900EEBA8B /* Scene */ = {
@@ -212,7 +201,7 @@
 		842490A329C9E95400EEBA8B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				842490A429C9E96300EEBA8B /* LocationManager.swift */,
+				842490A429C9E96300EEBA8B /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -327,13 +316,12 @@
 				8424907B29C881E800EEBA8B /* UIImage+Extension.swift in Sources */,
 				8424907829C881E800EEBA8B /* UIImageView+Extension.swift in Sources */,
 				8424909429C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift in Sources */,
-				8424884629C8570300EEBA8B /* DynamicLabel.swift in Sources */,
 				8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */,
 				8424909629C9BE8400EEBA8B /* UserDistanceModelInteractor.swift in Sources */,
 				8424884229C8551200EEBA8B /* MainView.swift in Sources */,
 				8424909D29C9C22700EEBA8B /* MainModuleBuilder.swift in Sources */,
 				8424908929C8CF1800EEBA8B /* UserDistanceModel.swift in Sources */,
-				842490A529C9E96300EEBA8B /* LocationManager.swift in Sources */,
+				842490A529C9E96300EEBA8B /* LocationService.swift in Sources */,
 				8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */,
 				84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */,
 				8424907929C881E800EEBA8B /* String+Extension.swift in Sources */,
@@ -481,6 +469,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "e-Locator/Resources/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "For tracking your current position";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For tracking your current position";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -508,6 +498,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "e-Locator/Resources/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "For tracking your current position";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For tracking your current position";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
