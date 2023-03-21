@@ -10,8 +10,7 @@ import UIKit
 final class MainModuleBuilder: ModuleBuilderProtocol {
     static func moduleProvider() -> UIViewController {
         let viewController = MainViewController()
-        let modelInteractor = UserDistanceModelInteractor()
-        let presenter = MainPresenter(view: viewController, modelInteractor: modelInteractor)
+        let presenter = MainPresenter(view: viewController)
         viewController.presenter = presenter
         return viewController
     }

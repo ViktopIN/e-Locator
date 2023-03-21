@@ -11,26 +11,46 @@ class MainPresenter: MainPresenterProtocol {
     
     // MARK: - Properties
     
-    private weak var view: MainViewProtocol?
-    private var modelInteractor: UserDistanceModelInteractorProtocol?
+    private unowned var view: MainViewProtocol
+    private var modelInteractor: UserDistanceModelInteractorProtocol
+    private var locationService: LocationService
     
     // MARK: - Initialiser
     
-    required init(
-        view: MainViewProtocol,
-        modelInteractor: UserDistanceModelInteractorProtocol
-    ) {
+    required init(view: MainViewProtocol) {
         self.view = view
-        self.modelInteractor = modelInteractor
+        modelInteractor = UserDistanceModelInteractor()
+        locationService = LocationService()
+        locationService.delegate = self
     }
     
     // MARK: - Methods
     
     func amountOfTableViewCell() -> Int {
-        modelInteractor?.providePreparedModel().count ?? 0
+        modelInteractor.providePreparedModel().count
     }
     
-    func tableViewDataProvide() -> [UserDistanceModel]? {
-        modelInteractor?.providePreparedModel()
+    func tableViewDataProvide() -> [UserDistanceModel] {
+        modelInteractor.providePreparedModel()
+    }
+}
+
+// MARK: - Extensions
+
+extension MainPresenter: LocationServiceDelegate {
+    func authorizationRestricted() {
+        view.locationServicesRestrictedState()
+    }
+    
+    func authorizationUnknown() {
+        view.locationServicesNeededState()
+    }
+    
+    func promptAuthorizationAction() {
+        view.promptForAuthorization()
+    }
+    
+    func didAuthorize() {
+        locationService.start()
     }
 }

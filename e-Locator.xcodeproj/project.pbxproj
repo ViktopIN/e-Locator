@@ -27,6 +27,7 @@
 		842490A029C9D70500EEBA8B /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */; };
 		842490A229C9D89800EEBA8B /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842490A129C9D89800EEBA8B /* URLSessionMock.swift */; };
 		842490BD29CA108300EEBA8B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842490BC29CA108300EEBA8B /* NetworkService.swift */; };
+		842490A529C9E96300EEBA8B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842490A429C9E96300EEBA8B /* LocationService.swift */; };
 		8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */; };
 		8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC2329C4D2D2009DF73F /* MainViewController.swift */; };
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		842490A129C9D89800EEBA8B /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		842490BC29CA108300EEBA8B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		842490A429C9E96300EEBA8B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8444EC1C29C4D2D2009DF73F /* e-Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8444EC1F29C4D2D2009DF73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8444EC2329C4D2D2009DF73F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		8424908029C8CE8600EEBA8B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				842490A329C9E95400EEBA8B /* Services */,
 				8424908529C8CEE900EEBA8B /* Scene */,
 				8424908229C8CEAF00EEBA8B /* Helpers */,
 				8424908129C8CE9200EEBA8B /* Application */,
@@ -199,6 +202,14 @@
 				842490A129C9D89800EEBA8B /* URLSessionMock.swift */,
 			);
 			path = MockService;
+			sourceTree = "<group>";
+		};
+		842490A329C9E95400EEBA8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				842490A429C9E96300EEBA8B /* LocationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8444EC1329C4D2D2009DF73F = {
@@ -317,6 +328,7 @@
 				8424884229C8551200EEBA8B /* MainView.swift in Sources */,
 				8424909D29C9C22700EEBA8B /* MainModuleBuilder.swift in Sources */,
 				8424908929C8CF1800EEBA8B /* UserDistanceModel.swift in Sources */,
+				842490A529C9E96300EEBA8B /* LocationService.swift in Sources */,
 				842490BD29CA108300EEBA8B /* NetworkService.swift in Sources */,
 				8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */,
 				84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */,
@@ -465,6 +477,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "e-Locator/Resources/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "For tracking your current position";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For tracking your current position";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -492,6 +506,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "e-Locator/Resources/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "For tracking your current position";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For tracking your current position";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
