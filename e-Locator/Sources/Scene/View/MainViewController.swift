@@ -8,6 +8,14 @@
 import UIKit
 import SnapKit
 
+protocol MainViewProtocol: AnyObject {
+    func reloadMainTableView()
+    func locationServicesRestrictedState()
+    func locationServicesNeededState()
+    func promptForAuthorization()
+    func networkError(_ errorDescription: String)
+}
+
 class MainViewController: UIViewController {
         
     // MARK: - Views
@@ -24,20 +32,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupHierarchy()
-        setupLayout()
         setupView()
     }
     
     // MARK: - Settings
-    
-    private func setupHierarchy() {
-        
-    }
-    
-    private func setupLayout() {
-        
-    }
     
     private func setupView() {
         mainView.mainTableView.dataSource = self
@@ -45,6 +43,7 @@ class MainViewController: UIViewController {
         title = "e-Locator"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = titleAttribute
+        presenter.fetchData()
     }
 }
 
@@ -71,14 +70,27 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: MainViewProtocol {
     func promptForAuthorization() {
         DispatchQueue.main.async { [unowned self] in
-            let alert = UIAlertController(title: "Location access is needed to get your current location", message: "Please allow location access", preferredStyle: .alert)
-            let settingsAction = UIAlertAction(title: "Settings", style: .default, handler: { _ in
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+            let alert = UIAlertController(
+                title: "Location access is needed to get your current location",
+                message: "Please allow location access",
+                preferredStyle: .alert
+            )
+            let settingsAction = UIAlertAction(
+                title: "Settings",
+                style: .default,
+                handler: { _ in
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!,
+                                          options: [:], completionHandler: nil
+                )
             })
 
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { [unowned self] _ in
+            let cancelAction = UIAlertAction(
+                title: "Cancel",
+                style: .default,
+                handler: { [unowned self] _ in
                 locationServicesNeededState()
-            })
+            }
+            )
 
             alert.addAction(settingsAction)
             alert.addAction(cancelAction)
@@ -88,6 +100,22 @@ extension MainViewController: MainViewProtocol {
             present(alert, animated: true, completion: nil)
         }
     }
+    
+    func networkError(_ errorDescription: String) {
+        DispatchQueue.main.async { [unowned self] in
+            let alert = UIAlertController(
+                title: "Something wrong with network service.\n\(errorDescription)",
+                message: "Please check network setup",
+                preferredStyle: .alert
+            )
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+
+            alert.addAction(cancelAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
     
     func locationServicesNeededState() {
         DispatchQueue.main.async { [unowned self] in

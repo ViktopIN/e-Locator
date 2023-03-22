@@ -15,7 +15,14 @@ protocol LocationServiceDelegate: AnyObject {
     func didAuthorize()
 }
 
-final class LocationService: NSObject, CLLocationManagerDelegate {
+protocol LocationServiceProtocol {
+    var delegate: LocationServiceDelegate? { get set }
+    var currentUserLocation: CLLocation? { get }
+    func start()
+    func stop()
+}
+
+final class LocationService: NSObject, CLLocationManagerDelegate, LocationServiceProtocol {
     
     // MARK: - Properties
     

@@ -7,25 +7,40 @@
 
 import Foundation
 
-class URLSessionMock: URLSession {
+enum ProjectError: Error {
+    case mockServiceError
+}
+
+final class URLSessionMock: URLSession {
     typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
     
     // MARK: - Properties
-
-    var data: Data?
-    var error: Error?
     
+    private var updaterService: any PseudoUpdaterServiceProtocol = MockModelPseudoUpaterService(handleArray: MockUserLocationModel.getModel())
+    
+    private var data: Data?
+    private var error: Error = ProjectError.mockServiceError
+        
     // MARK: - Override method
 
     override func dataTask(
         with url: URL,
         completionHandler: @escaping CompletionHandler
     ) -> URLSessionDataTask {
-        let data = self.data
         let error = self.error
-
-        return URLSessionDataTaskMock {
-            completionHandler(data, nil, error)
+        let unpreparedData = updaterService.handledArray().map { item in
+            return item as! MockUserLocationModel
+        }
+        do {
+            let data = try JSONEncoder().encode(unpreparedData)
+            return URLSessionDataTaskMock {
+                completionHandler(data, nil, error)
+            }
+        } catch {
+                let data = self.data
+                return URLSessionDataTaskMock {
+                    completionHandler(data, nil, error)
+            }
         }
     }
 }
