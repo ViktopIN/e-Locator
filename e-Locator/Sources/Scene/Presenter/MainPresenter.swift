@@ -72,6 +72,7 @@ class MainPresenter: MainPresenterProtocol {
                     mainUserLocation: locationService.currentUserLocation,
                     unpreparedModel: success
                 )
+                view.switchOffIndicatorView()
                 view.reloadMainTableView()
             case .failure(let failure):
                 view.networkError(failure.localizedDescription)
