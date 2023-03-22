@@ -33,6 +33,7 @@
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
 		8444EC2C29C4D2D3009DF73F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2A29C4D2D3009DF73F /* LaunchScreen.storyboard */; };
 		84D087A329CA1E7500BAA13E /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A229CA1E7500BAA13E /* ServiceContainer.swift */; };
+		84D087A529CA252D00BAA13E /* MockUserLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		8444EC2B29C4D2D3009DF73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8444EC2D29C4D2D3009DF73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D087A229CA1E7500BAA13E /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
+		84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserLocationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				8424909F29C9D70500EEBA8B /* URLSessionDataTaskMock.swift */,
 				842490A129C9D89800EEBA8B /* URLSessionMock.swift */,
+				84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */,
 			);
 			path = MockService;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				842490A529C9E96300EEBA8B /* LocationService.swift in Sources */,
 				842490BD29CA108300EEBA8B /* NetworkService.swift in Sources */,
 				8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */,
+				84D087A529CA252D00BAA13E /* MockUserLocationModel.swift in Sources */,
 				84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */,
 				8424907929C881E800EEBA8B /* String+Extension.swift in Sources */,
 				8444EC2029C4D2D2009DF73F /* AppDelegate.swift in Sources */,
