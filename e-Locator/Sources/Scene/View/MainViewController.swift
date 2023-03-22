@@ -13,6 +13,7 @@ protocol MainViewProtocol: AnyObject {
     func locationServicesRestrictedState()
     func locationServicesNeededState()
     func promptForAuthorization()
+    func switchOffIndicatorView()
     func networkError(_ errorDescription: String)
 }
 
@@ -49,9 +50,6 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numbersOfRows = presenter.amountOfTableViewCell()
-        if numbersOfRows != 0 {
-            mainView.switchOffIndicatorView()
-        }
         mainView.tableViewHeightConstraint.update(offset: mainView.tableViewRowHeight * CGFloat(numbersOfRows))
         return numbersOfRows
     }
@@ -70,6 +68,10 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - Extenstions -
 
 extension MainViewController: MainViewProtocol {
+    func switchOffIndicatorView() {
+        mainView.switchOffIndicatorView()
+    }
+    
     func promptForAuthorization() {
         DispatchQueue.main.async { [unowned self] in
             let alert = UIAlertController(
