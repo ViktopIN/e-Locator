@@ -33,7 +33,6 @@ final class URLSessionMock: URLSession {
         }
         do {
             let data = try JSONEncoder().encode(unpreparedData)
-            print(String(data: data, encoding: .utf8)!)
             return URLSessionDataTaskMock {
                 completionHandler(data, nil, error)
             }

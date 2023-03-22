@@ -13,10 +13,13 @@ final class MainModuleBuilder: ModuleBuilderProtocol {
         let networkService = NetworkService(session: session)
         let interactorService = UserDistanceModelInteractor()
         let locationService = LocationService()
+        let requesterService = Requester(timeInterval: 3)
         let serviceContainer = ServiceContainer(
             networkService: networkService,
             interactorService: interactorService,
-            locationService: locationService)
+            locationService: locationService,
+            requesterService: requesterService
+        )
         
         let viewController = MainViewController()
         let presenter = MainPresenter(

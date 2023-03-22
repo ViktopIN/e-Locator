@@ -30,6 +30,7 @@
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
 		8444EC2C29C4D2D3009DF73F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2A29C4D2D3009DF73F /* LaunchScreen.storyboard */; };
 		8458E37729CB48700006B43F /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458E37629CB48700006B43F /* Double+Extension.swift */; };
+		8458E37929CB5D920006B43F /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458E37829CB5D920006B43F /* Requester.swift */; };
 		84D087A329CA1E7500BAA13E /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A229CA1E7500BAA13E /* ServiceContainer.swift */; };
 		84D087A529CA252D00BAA13E /* MockUserLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */; };
 		84D087A729CB3A0000BAA13E /* MockModelPseudoUpaterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A629CB3A0000BAA13E /* MockModelPseudoUpaterService.swift */; };
@@ -60,6 +61,7 @@
 		8444EC2B29C4D2D3009DF73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8444EC2D29C4D2D3009DF73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8458E37629CB48700006B43F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		8458E37829CB5D920006B43F /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		84D087A229CA1E7500BAA13E /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserLocationModel.swift; sourceTree = "<group>"; };
 		84D087A629CB3A0000BAA13E /* MockModelPseudoUpaterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModelPseudoUpaterService.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				842490A429C9E96300EEBA8B /* LocationService.swift */,
 				842490BC29CA108300EEBA8B /* NetworkService.swift */,
 				84D087A229CA1E7500BAA13E /* ServiceContainer.swift */,
+				8458E37829CB5D920006B43F /* Requester.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */,
 				84248C6229C8804200EEBA8B /* MainTableViewCell.swift in Sources */,
+				8458E37929CB5D920006B43F /* Requester.swift in Sources */,
 				84D087A729CB3A0000BAA13E /* MockModelPseudoUpaterService.swift in Sources */,
 				8424909829C9BF5900EEBA8B /* MainPresenter.swift in Sources */,
 				84248C5B29C859FD00EEBA8B /* UIColor+Extensions.swift in Sources */,

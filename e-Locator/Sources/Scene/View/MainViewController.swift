@@ -32,20 +32,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupHierarchy()
-        setupLayout()
         setupView()
     }
     
     // MARK: - Settings
-    
-    private func setupHierarchy() {
-        
-    }
-    
-    private func setupLayout() {
-        
-    }
     
     private func setupView() {
         mainView.mainTableView.dataSource = self
@@ -53,6 +43,7 @@ class MainViewController: UIViewController {
         title = "e-Locator"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = titleAttribute
+        presenter.fetchData()
     }
 }
 

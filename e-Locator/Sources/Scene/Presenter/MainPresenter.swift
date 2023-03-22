@@ -12,6 +12,7 @@ protocol MainPresenterProtocol: AnyObject {
     var mainUserName: String { get set }
     func amountOfTableViewCell() -> Int
     func tableViewDataProvide() -> [UserDistanceModel]
+    func fetchData()
 }
 
 class MainPresenter: MainPresenterProtocol {
@@ -22,6 +23,7 @@ class MainPresenter: MainPresenterProtocol {
     private var modelInteractor: UserDistanceModelInteractorProtocol
     private var locationService: LocationServiceProtocol
     private var networkService: NetworkServiceProtocol
+    private var requester: RequesterProtocol
     
     private var model: [UserDistanceModel]?
     
@@ -37,10 +39,19 @@ class MainPresenter: MainPresenterProtocol {
         modelInteractor = serviceContainer.interactorService
         locationService = serviceContainer.locationService
         networkService = serviceContainer.networkService
-        locationService.delegate = self
+        requester = serviceContainer.requesterService
+        
+        presenterConfiguration()
     }
-    
+        
     // MARK: - Methods
+    
+    private func presenterConfiguration() {
+        locationService.delegate = self
+        requester.action = { [unowned self] in
+            fetchData()
+        }
+    }
     
     func amountOfTableViewCell() -> Int {
         model?.count ?? 0
@@ -50,10 +61,11 @@ class MainPresenter: MainPresenterProtocol {
         model ?? []
     }
     
-    private func fetchData() {
+    func fetchData() {
         // Make pseudo URL for mock service
         let url = URL(filePath: "url")
         
+        locationService.start()
         networkService.loadData(from: url) { [unowned self] (result: Result<[MockUserLocationModel], Error>) in
             switch result {
             case .success(let success):

@@ -11,6 +11,7 @@ protocol ServiceContainerProtocol: AnyObject {
     var networkService: NetworkServiceProtocol { get }
     var interactorService: UserDistanceModelInteractorProtocol { get }
     var locationService: LocationServiceProtocol { get }
+    var requesterService: RequesterProtocol { get }
 }
 
 final class ServiceContainer: ServiceContainerProtocol {
@@ -23,16 +24,20 @@ final class ServiceContainer: ServiceContainerProtocol {
     
     var locationService: LocationServiceProtocol
     
+    var requesterService: RequesterProtocol
+    
     // MARK: - Init
     
     init(
         networkService: NetworkServiceProtocol,
         interactorService: UserDistanceModelInteractorProtocol,
-        locationService: LocationServiceProtocol
+        locationService: LocationServiceProtocol,
+        requesterService: RequesterProtocol
     ) {
         self.networkService = networkService
         self.interactorService = interactorService
         self.locationService = locationService
+        self.requesterService = requesterService
     }
 }
 
