@@ -17,9 +17,6 @@
 		8424907929C881E800EEBA8B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424907529C881E800EEBA8B /* String+Extension.swift */; };
 		8424907B29C881E800EEBA8B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424907729C881E800EEBA8B /* UIImage+Extension.swift */; };
 		8424908929C8CF1800EEBA8B /* UserDistanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908829C8CF1800EEBA8B /* UserDistanceModel.swift */; };
-		8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */; };
-		8424909029C9BBDE00EEBA8B /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */; };
-		8424909429C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909329C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift */; };
 		8424909629C9BE8400EEBA8B /* UserDistanceModelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909529C9BE8400EEBA8B /* UserDistanceModelInteractor.swift */; };
 		8424909829C9BF5900EEBA8B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909729C9BF5900EEBA8B /* MainPresenter.swift */; };
 		8424909B29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424909A29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift */; };
@@ -32,6 +29,7 @@
 		8444EC2429C4D2D2009DF73F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444EC2329C4D2D2009DF73F /* MainViewController.swift */; };
 		8444EC2929C4D2D3009DF73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2829C4D2D3009DF73F /* Assets.xcassets */; };
 		8444EC2C29C4D2D3009DF73F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8444EC2A29C4D2D3009DF73F /* LaunchScreen.storyboard */; };
+		8458E37729CB48700006B43F /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458E37629CB48700006B43F /* Double+Extension.swift */; };
 		84D087A329CA1E7500BAA13E /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A229CA1E7500BAA13E /* ServiceContainer.swift */; };
 		84D087A529CA252D00BAA13E /* MockUserLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */; };
 		84D087A729CB3A0000BAA13E /* MockModelPseudoUpaterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A629CB3A0000BAA13E /* MockModelPseudoUpaterService.swift */; };
@@ -47,9 +45,6 @@
 		8424907529C881E800EEBA8B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8424907729C881E800EEBA8B /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8424908829C8CF1800EEBA8B /* UserDistanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistanceModel.swift; sourceTree = "<group>"; };
-		8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
-		8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
-		8424909329C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistanceModelInteractorProtocol.swift; sourceTree = "<group>"; };
 		8424909529C9BE8400EEBA8B /* UserDistanceModelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistanceModelInteractor.swift; sourceTree = "<group>"; };
 		8424909729C9BF5900EEBA8B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		8424909A29C9C1E400EEBA8B /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
@@ -64,6 +59,7 @@
 		8444EC2829C4D2D3009DF73F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8444EC2B29C4D2D3009DF73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8444EC2D29C4D2D3009DF73F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8458E37629CB48700006B43F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		84D087A229CA1E7500BAA13E /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserLocationModel.swift; sourceTree = "<group>"; };
 		84D087A629CB3A0000BAA13E /* MockModelPseudoUpaterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModelPseudoUpaterService.swift; sourceTree = "<group>"; };
@@ -95,9 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				842490A329C9E95400EEBA8B /* Services */,
-				8424908529C8CEE900EEBA8B /* Scene */,
 				8424908229C8CEAF00EEBA8B /* Helpers */,
 				8424908129C8CE9200EEBA8B /* Application */,
+				8424908529C8CEE900EEBA8B /* Scene */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -128,6 +124,7 @@
 				84248C5A29C859FD00EEBA8B /* UIColor+Extensions.swift */,
 				8424884329C8563800EEBA8B /* UIStackView+Extension.swift */,
 				84248C5F29C871F300EEBA8B /* UIView+Extensions.swift */,
+				8458E37629CB48700006B43F /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -135,7 +132,6 @@
 		8424908529C8CEE900EEBA8B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				8424908C29C9BB6600EEBA8B /* Protocols */,
 				8424908B29C9BB6000EEBA8B /* Presenter */,
 				8424908629C8CEEF00EEBA8B /* View */,
 				8424908A29C8CF1F00EEBA8B /* Model */,
@@ -176,16 +172,6 @@
 				8424909729C9BF5900EEBA8B /* MainPresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		8424908C29C9BB6600EEBA8B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				8424908D29C9BB7C00EEBA8B /* MainViewProtocol.swift */,
-				8424908F29C9BBDE00EEBA8B /* MainPresenterProtocol.swift */,
-				8424909329C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8424909929C9C1BB00EEBA8B /* ModuleBuilder */ = {
@@ -325,11 +311,9 @@
 				84D087A729CB3A0000BAA13E /* MockModelPseudoUpaterService.swift in Sources */,
 				8424909829C9BF5900EEBA8B /* MainPresenter.swift in Sources */,
 				84248C5B29C859FD00EEBA8B /* UIColor+Extensions.swift in Sources */,
-				8424909029C9BBDE00EEBA8B /* MainPresenterProtocol.swift in Sources */,
 				84D087A329CA1E7500BAA13E /* ServiceContainer.swift in Sources */,
 				8424907B29C881E800EEBA8B /* UIImage+Extension.swift in Sources */,
 				8424907829C881E800EEBA8B /* UIImageView+Extension.swift in Sources */,
-				8424909429C9BD7A00EEBA8B /* UserDistanceModelInteractorProtocol.swift in Sources */,
 				8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */,
 				8424909629C9BE8400EEBA8B /* UserDistanceModelInteractor.swift in Sources */,
 				8424884229C8551200EEBA8B /* MainView.swift in Sources */,
@@ -337,7 +321,7 @@
 				8424908929C8CF1800EEBA8B /* UserDistanceModel.swift in Sources */,
 				842490A529C9E96300EEBA8B /* LocationService.swift in Sources */,
 				842490BD29CA108300EEBA8B /* NetworkService.swift in Sources */,
-				8424908E29C9BB7C00EEBA8B /* MainViewProtocol.swift in Sources */,
+				8458E37729CB48700006B43F /* Double+Extension.swift in Sources */,
 				84D087A529CA252D00BAA13E /* MockUserLocationModel.swift in Sources */,
 				84248C6029C871F300EEBA8B /* UIView+Extensions.swift in Sources */,
 				8424907929C881E800EEBA8B /* String+Extension.swift in Sources */,

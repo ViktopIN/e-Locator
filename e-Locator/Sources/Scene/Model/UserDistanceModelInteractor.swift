@@ -5,13 +5,44 @@
 //  Created by Виктор on 21.03.2023.
 //
 
-import Foundation
+import UIKit
+import CoreLocation
 
-class UserDistanceModelInteractor: UserDistanceModelInteractorProtocol {
-    
+protocol UserDistanceModelInteractorProtocol: AnyObject {
+    func providePreparedModel(
+        mainUserName: String,
+        mainUserLocation: CLLocation?,
+        unpreparedModel: [MockUserLocationModel]?
+    ) -> [UserDistanceModel]
+}
+
+final class UserDistanceModelInteractor: UserDistanceModelInteractorProtocol {
+
     // MARK: - Methods
     
-    func providePreparedModel() -> [UserDistanceModel] {
-        UserDistanceModel.getModel()
+    func providePreparedModel(
+        mainUserName: String,
+        mainUserLocation: CLLocation?,
+        unpreparedModel: [MockUserLocationModel]?
+    ) -> [UserDistanceModel] {
+        guard let mainUserLocation = mainUserLocation,
+              let unpreparedModel = unpreparedModel
+        else {
+            return []
+        }
+        let preparedModel = unpreparedModel.map { userModel in
+            let userLocation = CLLocation(
+                latitude: userModel.latitude,
+                longitude: userModel.longtitude
+            )
+            let distanceDescription = Double(mainUserLocation.distance(from: userLocation)).distanceDescription(fromUser: mainUserName)
+            let newUserModel = UserDistanceModel(
+                name: userModel.name,
+                image: UIImage(named: userModel.imageName),
+                distanceDescription: distanceDescription
+            )
+            return newUserModel
+        }
+        return preparedModel
     }
 }

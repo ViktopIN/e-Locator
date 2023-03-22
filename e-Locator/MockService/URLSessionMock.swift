@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum ProjectError: Error {
+    case mockServiceError
+}
+
 final class URLSessionMock: URLSession {
     typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
     
@@ -15,7 +19,7 @@ final class URLSessionMock: URLSession {
     private var updaterService: any PseudoUpdaterServiceProtocol = MockModelPseudoUpaterService(handleArray: MockUserLocationModel.getModel())
     
     private var data: Data?
-    private var error: Error?
+    private var error: Error = ProjectError.mockServiceError
         
     // MARK: - Override method
 

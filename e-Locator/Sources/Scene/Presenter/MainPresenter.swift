@@ -7,6 +7,13 @@
 
 import Foundation
 
+protocol MainPresenterProtocol: AnyObject {
+    init(view: MainViewProtocol, serviceContainer: ServiceContainerProtocol)
+    var mainUserName: String { get set }
+    func amountOfTableViewCell() -> Int
+    func tableViewDataProvide() -> [UserDistanceModel]
+}
+
 class MainPresenter: MainPresenterProtocol {
     
     // MARK: - Properties
@@ -15,6 +22,10 @@ class MainPresenter: MainPresenterProtocol {
     private var modelInteractor: UserDistanceModelInteractorProtocol
     private var locationService: LocationServiceProtocol
     private var networkService: NetworkServiceProtocol
+    
+    private var model: [UserDistanceModel]?
+    
+    lazy var mainUserName: String = "Вас"
     
     // MARK: - Initialiser
     
@@ -32,11 +43,30 @@ class MainPresenter: MainPresenterProtocol {
     // MARK: - Methods
     
     func amountOfTableViewCell() -> Int {
-        modelInteractor.providePreparedModel().count
+        model?.count ?? 0
     }
     
     func tableViewDataProvide() -> [UserDistanceModel] {
-        modelInteractor.providePreparedModel()
+        model ?? []
+    }
+    
+    private func fetchData() {
+        // Make pseudo URL for mock service
+        let url = URL(filePath: "url")
+        
+        networkService.loadData(from: url) { [unowned self] (result: Result<[MockUserLocationModel], Error>) in
+            switch result {
+            case .success(let success):
+                self.model = modelInteractor.providePreparedModel(
+                    mainUserName: mainUserName,
+                    mainUserLocation: locationService.currentUserLocation,
+                    unpreparedModel: success
+                )
+                view.reloadMainTableView()
+            case .failure(let failure):
+                view.networkError(failure.localizedDescription)
+            }
+        }
     }
 }
 
