@@ -226,8 +226,8 @@
 		8444EC1E29C4D2D2009DF73F /* e-Locator */ = {
 			isa = PBXGroup;
 			children = (
-				8424908029C8CE8600EEBA8B /* Sources */,
 				8424907F29C8CE5000EEBA8B /* Resources */,
+				8424908029C8CE8600EEBA8B /* Sources */,
 				8424909E29C9D6BE00EEBA8B /* MockService */,
 			);
 			path = "e-Locator";
