@@ -17,13 +17,18 @@ protocol NetworkServiceProtocol {
 }
 
 final class NetworkService: NetworkServiceProtocol {
+    
+    // MARK: - Property
+    
     private let session: URLSession
     
-    // By using a default argument (in this case .shared) we can add dependency
-    // injection without making our app code more complicated.
+    // MARK: - Init
+    
     init(session: URLSession = .shared) {
         self.session = session
     }
+    
+    // MARK: - Method
     
     func loadData<T: Codable>(
         from url: URL,
