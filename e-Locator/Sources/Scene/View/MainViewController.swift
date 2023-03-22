@@ -43,13 +43,15 @@ class MainViewController: UIViewController {
         title = "e-Locator"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = titleAttribute
-        presenter.fetchData()
     }
 }
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numbersOfRows = presenter.amountOfTableViewCell()
+        if numbersOfRows != 0 {
+            mainView.switchOffIndicatorView()
+        }
         mainView.tableViewHeightConstraint.update(offset: mainView.tableViewRowHeight * CGFloat(numbersOfRows))
         return numbersOfRows
     }
@@ -116,7 +118,6 @@ extension MainViewController: MainViewProtocol {
         }
     }
 
-    
     func locationServicesNeededState() {
         DispatchQueue.main.async { [unowned self] in
             mainView.mainTableView.isHidden = true

@@ -20,7 +20,7 @@ final class MockModelPseudoUpaterService: PseudoUpdaterServiceProtocol {
     // MARK: - Properties
     
     private var handleArray: [MockUserLocationModel]
-    private var diapason = 0.005...0.1
+    private var diapason = 0.005...0.01
     
     // MARK: - Init
     
@@ -31,13 +31,14 @@ final class MockModelPseudoUpaterService: PseudoUpdaterServiceProtocol {
     // MARK: - Methods
     
     func handledArray() -> [MockUserLocationModel] {
-       let handledArray = handleArray.map { item in
+       let newHandledArray = handleArray.map { item in
            var newItem = item
            newItem.latitude += Double.random(in: diapason)
            newItem.longtitude += Double.random(in: diapason)
            return newItem
         }
-        return handledArray
+        handleArray = newHandledArray
+        return newHandledArray
     }
 }
 

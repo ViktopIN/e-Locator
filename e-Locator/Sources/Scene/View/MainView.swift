@@ -25,8 +25,19 @@ class MainView: UIView {
     }()
     
     private lazy var containerView = UIView(background: .clear)
+    
+    private lazy var loadingIndicatorActivity: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.color = .gray
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        
+        return activityIndicator
+    }()
             
-     var mainTableView: UITableView = {
+    var mainTableView: UITableView = {
         var tableView = UITableView()
         tableView.isScrollEnabled = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,9 +83,8 @@ class MainView: UIView {
     private func setupHierarchy() {
         addSubview(mainScrollView)
         addSubview(statusLabel)
-        mainScrollView.addSubview(containerView)
+        mainScrollView.addSubviews(loadingIndicatorActivity, containerView)
         containerView.addSubview(mainTableView)
-        
     }
     
     private func setupLayout() {
@@ -91,6 +101,14 @@ class MainView: UIView {
             make.width.equalToSuperview().multipliedBy(0.9)
             tableViewHeightConstraint = make.height.equalTo(0).constraint
         }
+        
+        loadingIndicatorActivity.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top)
+            make.centerX.equalTo(containerView.snp.centerX)
+            make.width.equalTo(containerView.snp.width)
+            make.bottom.equalTo(snp.bottom)
+        }
+        
         statusLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -102,5 +120,9 @@ class MainView: UIView {
     private func setupView() {
         backgroundColor = .mainBackgroundColor
         mainTableView.rowHeight = tableViewRowHeight
+    }
+    
+    func switchOffIndicatorView() {
+        loadingIndicatorActivity.stopAnimating()
     }
 }
