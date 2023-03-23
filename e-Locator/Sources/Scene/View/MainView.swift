@@ -58,6 +58,18 @@ class MainView: UIView {
         label.isHidden = true
         return label
     }()
+    
+    private lazy var popUpUserView: UserInfoCellView = {
+        let view = UserInfoCellView()
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowRadius = 5
+        view.layer.shadowOffset = .zero
+        view.layer.cornerRadius = 20
+        
+        return view
+    }()
 
     // MARK: - Initializers
     
@@ -75,14 +87,13 @@ class MainView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        popUpUserView.center.x -= popUpUserView.bounds.width
     }
                 
     // MARK: - Settings
     
     private func setupHierarchy() {
-        addSubview(mainScrollView)
-        addSubview(statusLabel)
+        addSubviews(mainScrollView, statusLabel, popUpUserView)
         mainScrollView.addSubviews(loadingIndicatorActivity, containerView)
         containerView.addSubview(mainTableView)
     }
@@ -115,6 +126,13 @@ class MainView: UIView {
             make.width.equalToSuperview().multipliedBy(0.9)
             make.height.equalToSuperview().dividedBy(3)
         }
+        
+        popUpUserView.snp.makeConstraints { make in
+            make.width.equalTo(containerView.snp.width).multipliedBy(0.95)
+            make.top.equalTo(layoutMarginsGuide.snp.top).inset(20)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(tableViewRowHeight)
+        }
     }
     
     private func setupView() {
@@ -124,5 +142,18 @@ class MainView: UIView {
     
     func switchOffIndicatorView() {
         loadingIndicatorActivity.stopAnimating()
+    }
+    
+    func showPopUpViewis(_ value: Bool) {
+        DispatchQueue.main.async {
+            UIView.animate(
+                withDuration: 1,
+                delay: 0,
+                options: .curveEaseInOut,
+                animations: { [unowned self] in
+                popUpUserView.center.x += value ? -popUpUserView.bounds.width : popUpUserView.bounds.width
+            }
+            )
+        }
     }
 }
