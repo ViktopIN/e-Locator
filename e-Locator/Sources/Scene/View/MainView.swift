@@ -14,6 +14,7 @@ class MainView: UIView {
     
     var tableViewHeightConstraint: Constraint!
     var tableViewRowHeight: CGFloat = UIScreen.main.bounds.height / 13
+    private var popUpLeadingConstraint: Constraint!
     
     // MARK: - Views
     
@@ -61,6 +62,7 @@ class MainView: UIView {
     
     private lazy var popUpUserView: UserInfoCellView = {
         let view = UserInfoCellView()
+        view.configureSelectMarkButton()
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.lightGray.cgColor
         view.layer.shadowOpacity = 0.3
@@ -87,7 +89,7 @@ class MainView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        popUpUserView.center.x -= popUpUserView.bounds.width
+        popUpLeadingConstraint?.update(offset: -bounds.width)
     }
                 
     // MARK: - Settings
@@ -130,7 +132,7 @@ class MainView: UIView {
         popUpUserView.snp.makeConstraints { make in
             make.width.equalTo(containerView.snp.width).multipliedBy(0.95)
             make.top.equalTo(layoutMarginsGuide.snp.top).inset(20)
-            make.centerX.equalToSuperview()
+            popUpLeadingConstraint = make.centerX.equalTo(containerView.snp.centerX).constraint
             make.height.equalTo(tableViewRowHeight)
         }
     }
@@ -140,20 +142,33 @@ class MainView: UIView {
         mainTableView.rowHeight = tableViewRowHeight
     }
     
+    // MARK: - Methods
+    
     func switchOffIndicatorView() {
         loadingIndicatorActivity.stopAnimating()
     }
     
     func showPopUpViewis(_ value: Bool) {
-        DispatchQueue.main.async {
-            UIView.animate(
-                withDuration: 1,
-                delay: 0,
-                options: .curveEaseInOut,
-                animations: { [unowned self] in
-                popUpUserView.center.x += value ? -popUpUserView.bounds.width : popUpUserView.bounds.width
+        UIView.animate(
+            withDuration: 0.4,
+            animations: { [unowned self] in
+                if value {
+                    popUpLeadingConstraint?.deactivate()
+                } else {
+                    popUpLeadingConstraint?.activate()
+                }
+                popUpUserView.center.x += value ? bounds.width : -bounds.width
+            }) { [unowned self] isFinished in
+                if isFinished {
+                    popUpUserView.configureSelectMarkButton()
+                }
             }
-            )
+    }
+    
+    func configurePopUpView(with model: UserDistanceModel) {
+        popUpUserView.configurationCell(with: model)
+        popUpUserView.cancelChoiseAction = { [unowned self] in
+            showPopUpViewis(false)
         }
     }
 }
