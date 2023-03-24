@@ -39,6 +39,7 @@ final class UserDistanceModelInteractor: UserDistanceModelInteractorProtocol {
             let newUserModel = UserDistanceModel(
                 name: userModel.name,
                 image: UIImage(named: userModel.imageName),
+                id: userModel.id,
                 distanceDescription: distanceDescription
             )
             return newUserModel
