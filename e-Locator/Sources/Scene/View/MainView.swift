@@ -63,6 +63,7 @@ class MainView: UIView {
     private lazy var popUpUserView: UserInfoCellView = {
         let view = UserInfoCellView()
         view.configureSelectMarkButton()
+        view.configurePopUpView()
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.lightGray.cgColor
         view.layer.shadowOpacity = 0.3
@@ -144,8 +145,13 @@ class MainView: UIView {
     
     // MARK: - Methods
     
-    func switchOffIndicatorView() {
-        loadingIndicatorActivity.stopAnimating()
+    func switchOffIndicatorView(to value: Bool) {
+        if value {
+            loadingIndicatorActivity.isHidden = false
+            loadingIndicatorActivity.startAnimating()
+        } else {
+            loadingIndicatorActivity.stopAnimating()
+        }
     }
     
     func showPopUpViewis(_ value: Bool) {
@@ -165,10 +171,10 @@ class MainView: UIView {
             }
     }
     
-    func configurePopUpView(with model: UserDistanceModel) {
+    func configurePopUpView(with model: UserDistanceModel, completion: @escaping () -> Void) {
         popUpUserView.configurationCell(with: model)
-        popUpUserView.cancelChoiseAction = { [unowned self] in
-            showPopUpViewis(false)
+        popUpUserView.cancelChoiseAction = {
+            completion()
         }
     }
 }

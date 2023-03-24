@@ -5,13 +5,17 @@
 //  Created by Виктор on 21.03.2023.
 //
 
-import Foundation
+import CoreLocation
+import UIKit
 
 protocol MainPresenterProtocol: AnyObject {
     init(view: MainViewProtocol, serviceContainer: ServiceContainerProtocol)
     var mainUserName: String { get set }
+    var mainId: String? { get set }
     func amountOfTableViewCell() -> Int
     func tableViewDataProvide() -> [UserDistanceModel]
+    func mainModel() -> UserDistanceModel
+    func updateData()
 }
 
 class MainPresenter: MainPresenterProtocol {
@@ -25,8 +29,17 @@ class MainPresenter: MainPresenterProtocol {
     private var requester: RequesterProtocol
     
     private var model: [UserDistanceModel]?
+    private var unprepairedModel: [MockUserLocationModel]?
     
-    lazy var mainUserName: String = "Вас"
+    var mainUserName: String = "Вас"
+    var mainId: String? {
+        willSet {
+            if newValue == nil {
+                mainUserName = "Вас"
+            }
+        }
+    }
+    var mainLocation: CLLocation?
     
     // MARK: - Initialiser
     
@@ -51,13 +64,54 @@ class MainPresenter: MainPresenterProtocol {
             fetchData()
         }
     }
-    
+        
     func amountOfTableViewCell() -> Int {
         model?.count ?? 0
     }
     
     func tableViewDataProvide() -> [UserDistanceModel] {
         model ?? []
+    }
+    
+    func mainModel() -> UserDistanceModel {
+        requester.stop()
+        let returnedModel = model?.first(where: { model in
+            model.id == self.mainId
+        })
+        requester.start()
+        return returnedModel ?? UserDistanceModel(
+            name: "User",
+            image: UIImage(), id: "",
+            distanceDescription: "unknown distance"
+        )
+    }
+    
+    func updateData() {
+        updateMainLocation()
+        self.model = modelInteractor.providePreparedModel(
+            mainUserName: mainUserName,
+            mainUserLocation: mainLocation,
+            unpreparedModel: unprepairedModel
+        )
+        view.reloadMainTableView()
+    }
+    
+    private func updateMainLocation() {
+        if let id = mainId, let unprepairedModel = unprepairedModel  {
+            let model = unprepairedModel.first { fetchingModel in
+                fetchingModel.id == id
+            }
+            mainLocation = CLLocation(
+                latitude: model!.latitude,
+                longitude: model!.longtitude
+            )
+            locationService.stop()
+        } else {
+            view.switchIndicatorView(to: true)
+            locationService.start()
+            mainLocation = locationService.currentUserLocation
+        }
+
     }
     
     private func fetchData() {
@@ -67,12 +121,19 @@ class MainPresenter: MainPresenterProtocol {
         networkService.loadData(from: url) { [unowned self] (result: Result<[MockUserLocationModel], Error>) in
             switch result {
             case .success(let success):
+                unprepairedModel = success
+                
+                updateMainLocation()
+                
                 self.model = modelInteractor.providePreparedModel(
                     mainUserName: mainUserName,
-                    mainUserLocation: locationService.currentUserLocation,
+                    mainUserLocation: mainLocation,
                     unpreparedModel: success
                 )
-                view.switchOffIndicatorView()
+                if model == [] {
+                    view.networkError("Wrong data")
+                }
+                view.switchIndicatorView(to: false)
                 view.reloadMainTableView()
             case .failure(let failure):
                 view.networkError(failure.localizedDescription)

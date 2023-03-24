@@ -10,6 +10,9 @@ import UIKit
 final class MainTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "MainTableViewCell"
+    private var id: String?
+    var recieveDataAction: ((_ id: String, _ name: String) -> ())?
+    var cancelChoiseAction: (() -> Void)?
     
     // MARK: - Views
     
@@ -31,7 +34,7 @@ final class MainTableViewCell: UITableViewCell {
     // MARK: - Settings
     
     private func setupHierarchy() {
-        addSubview(cellContentView)
+        contentView.addSubview(cellContentView)
     }
     
     private func setupLayout() {
@@ -41,6 +44,24 @@ final class MainTableViewCell: UITableViewCell {
     // MARK: - Methods
     
     func configurationCell(with data: UserDistanceModel) {
+        id = data.id
         cellContentView.configurationCell(with: data)
+    }
+    
+    func conectDataReciever() {
+        guard let recieveDataAction = recieveDataAction,
+              let cancelChoiseAction = cancelChoiseAction,
+              let id = id
+        else {
+            return
+            
+        }
+        cellContentView.recieveDataAction = { name in
+            recieveDataAction(name, id)
+        }
+        
+        cellContentView.cancelChoiseAction = {
+            cancelChoiseAction()
+        }
     }
 }

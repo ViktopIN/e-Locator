@@ -9,6 +9,11 @@ import UIKit
 import SnapKit
 
 final class UserInfoCellView: UIView {
+    
+    // MARK: - Properties
+    
+    var recieveDataAction: ((String) -> ())?
+    var cancelChoiseAction: (() -> Void)?
         
     // MARK: - Views
     
@@ -119,9 +124,24 @@ final class UserInfoCellView: UIView {
         nameLabel.text = data.name
         distanceLabel.text = data.distanceDescription
     }
+    
+    func configureSelectMarkButton() {
+        favoriteMarkButton.isSelected = true
+    }
+    
+    func configurePopUpView() {
+        distanceLabel.isHidden = true
+    }
 
     @objc
     private func favoriteButtonAction() {
         favoriteMarkButton.isSelected.toggle()
+        if favoriteMarkButton.isSelected {
+            guard let recieveDataAction = recieveDataAction else { return }
+            recieveDataAction(nameLabel.text ?? "User")
+        } else {
+            guard let cancelChoiseAction = cancelChoiseAction else { return }
+            cancelChoiseAction()
+        }
     }
 }

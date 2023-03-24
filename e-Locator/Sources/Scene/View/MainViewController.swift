@@ -13,7 +13,7 @@ protocol MainViewProtocol: AnyObject {
     func locationServicesRestrictedState()
     func locationServicesNeededState()
     func promptForAuthorization()
-    func switchOffIndicatorView()
+    func switchIndicatorView(to value: Bool)
     func networkError(_ errorDescription: String)
 }
 
@@ -60,6 +60,24 @@ extension MainViewController: UITableViewDataSource {
         let data = presenter.tableViewDataProvide()
         cell.configurationCell(with: data[indexPath.row])
         cell.selectionStyle = .none
+
+        cell.cancelChoiseAction = { [unowned self] in
+            presenter.mainId = nil
+            presenter.updateData()
+            mainView.showPopUpViewis(false)
+        }
+        cell.recieveDataAction = { [unowned self] (name, id) in
+            presenter.mainId = id
+            presenter.mainUserName = name
+            mainView.configurePopUpView(with: presenter.mainModel(), completion: {
+                guard let cancelChoiseAction = cell.cancelChoiseAction else { return }
+                cancelChoiseAction()
+            })
+            presenter.updateData()
+            mainView.showPopUpViewis(true)
+        }
+
+        cell.conectDataReciever()
         
         return cell
     }
@@ -68,8 +86,9 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - Extenstions -
 
 extension MainViewController: MainViewProtocol {
-    func switchOffIndicatorView() {
-        mainView.switchOffIndicatorView()
+    
+    func switchIndicatorView(to value: Bool) {
+        mainView.switchOffIndicatorView(to: value)
     }
     
     func promptForAuthorization() {
