@@ -34,6 +34,7 @@
 		84D087A329CA1E7500BAA13E /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A229CA1E7500BAA13E /* ServiceContainer.swift */; };
 		84D087A529CA252D00BAA13E /* MockUserLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */; };
 		84D087A729CB3A0000BAA13E /* MockModelPseudoUpaterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D087A629CB3A0000BAA13E /* MockModelPseudoUpaterService.swift */; };
+		84D45E2129CCB3BC00E962C5 /* UserInfoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D45E2029CCB3BC00E962C5 /* UserInfoCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		84D087A229CA1E7500BAA13E /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
 		84D087A429CA252D00BAA13E /* MockUserLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserLocationModel.swift; sourceTree = "<group>"; };
 		84D087A629CB3A0000BAA13E /* MockModelPseudoUpaterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModelPseudoUpaterService.swift; sourceTree = "<group>"; };
+		84D45E2029CCB3BC00E962C5 /* UserInfoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		8424908229C8CEAF00EEBA8B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				84D45E1F29CCB35800E962C5 /* CustomView */,
 				8424909929C9C1BB00EEBA8B /* ModuleBuilder */,
 				8424908329C8CEB700EEBA8B /* Extensions */,
 			);
@@ -233,6 +236,14 @@
 			path = "e-Locator";
 			sourceTree = "<group>";
 		};
+		84D45E1F29CCB35800E962C5 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				84D45E2029CCB3BC00E962C5 /* UserInfoCellView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,6 +331,7 @@
 				8424907829C881E800EEBA8B /* UIImageView+Extension.swift in Sources */,
 				8424884429C8563800EEBA8B /* UIStackView+Extension.swift in Sources */,
 				8424909629C9BE8400EEBA8B /* UserDistanceModelInteractor.swift in Sources */,
+				84D45E2129CCB3BC00E962C5 /* UserInfoCellView.swift in Sources */,
 				8424884229C8551200EEBA8B /* MainView.swift in Sources */,
 				8424909D29C9C22700EEBA8B /* MainModuleBuilder.swift in Sources */,
 				8424908929C8CF1800EEBA8B /* UserDistanceModel.swift in Sources */,
