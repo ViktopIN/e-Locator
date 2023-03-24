@@ -125,8 +125,8 @@ final class UserInfoCellView: UIView {
         distanceLabel.text = data.distanceDescription
     }
     
-    func configureSelectMarkButton() {
-        favoriteMarkButton.isSelected = true
+    func configureSelectMarkButton(is value: Bool) {
+        favoriteMarkButton.isSelected = value
     }
     
     func configurePopUpView() {

@@ -16,6 +16,7 @@ protocol MainPresenterProtocol: AnyObject {
     func tableViewDataProvide() -> [UserDistanceModel]
     func mainModel() -> UserDistanceModel
     func updateData()
+    func defineSelectCell(withId: String?) -> Bool
 }
 
 class MainPresenter: MainPresenterProtocol {
@@ -95,6 +96,11 @@ class MainPresenter: MainPresenterProtocol {
         )
         view.reloadMainTableView()
     }
+    
+    func defineSelectCell(withId: String?) -> Bool {
+        mainId == withId
+    }
+
     
     private func updateMainLocation() {
         if let id = mainId, let unprepairedModel = unprepairedModel  {

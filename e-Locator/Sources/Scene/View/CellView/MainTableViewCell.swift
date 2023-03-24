@@ -10,7 +10,7 @@ import UIKit
 final class MainTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "MainTableViewCell"
-    private var id: String?
+    var id: String?
     var recieveDataAction: ((_ id: String, _ name: String) -> ())?
     var cancelChoiseAction: (() -> Void)?
     
@@ -63,5 +63,9 @@ final class MainTableViewCell: UITableViewCell {
         cellContentView.cancelChoiseAction = {
             cancelChoiseAction()
         }
+    }
+    
+    func configurationSelectCell(with value: Bool) {
+        cellContentView.configureSelectMarkButton(is: value)
     }
 }

@@ -76,7 +76,9 @@ extension MainViewController: UITableViewDataSource {
             presenter.updateData()
             mainView.showPopUpViewis(true)
         }
-
+        
+        cell.configurationSelectCell(with: presenter.defineSelectCell(withId: cell.id))
+        
         cell.conectDataReciever()
         
         return cell

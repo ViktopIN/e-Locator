@@ -62,7 +62,7 @@ class MainView: UIView {
     
     private lazy var popUpUserView: UserInfoCellView = {
         let view = UserInfoCellView()
-        view.configureSelectMarkButton()
+        view.configureSelectMarkButton(is: true)
         view.configurePopUpView()
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.lightGray.cgColor
@@ -166,7 +166,7 @@ class MainView: UIView {
                 popUpUserView.center.x += value ? bounds.width : -bounds.width
             }) { [unowned self] isFinished in
                 if isFinished {
-                    popUpUserView.configureSelectMarkButton()
+                    popUpUserView.configureSelectMarkButton(is: true)
                 }
             }
     }
