@@ -34,6 +34,7 @@ import Foundation
 
 struct MockUserLocationModel: Codable {
     let name: String
+    var id: String = UUID().uuidString
     let imageName: String
     var latitude: Double
     var longtitude: Double

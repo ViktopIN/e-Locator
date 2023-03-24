@@ -7,8 +7,14 @@
 
 import UIKit
 
-struct UserDistanceModel {
+struct UserDistanceModel: Equatable {
     let name: String
     let image: UIImage?
+    let id: String
     let distanceDescription: String
+    
+    static func == (lhs: UserDistanceModel, rhs: UserDistanceModel) -> Bool {
+           return
+               lhs.id == rhs.id 
+       }
 }

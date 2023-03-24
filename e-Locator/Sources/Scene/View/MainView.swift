@@ -14,6 +14,7 @@ class MainView: UIView {
     
     var tableViewHeightConstraint: Constraint!
     var tableViewRowHeight: CGFloat = UIScreen.main.bounds.height / 13
+    private var popUpLeadingConstraint: Constraint!
     
     // MARK: - Views
     
@@ -58,6 +59,20 @@ class MainView: UIView {
         label.isHidden = true
         return label
     }()
+    
+    private lazy var popUpUserView: UserInfoCellView = {
+        let view = UserInfoCellView()
+        view.configureSelectMarkButton(is: true)
+        view.configurePopUpView()
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowRadius = 5
+        view.layer.shadowOffset = .zero
+        view.layer.cornerRadius = 20
+        
+        return view
+    }()
 
     // MARK: - Initializers
     
@@ -75,14 +90,13 @@ class MainView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        popUpLeadingConstraint?.update(offset: -bounds.width)
     }
                 
     // MARK: - Settings
     
     private func setupHierarchy() {
-        addSubview(mainScrollView)
-        addSubview(statusLabel)
+        addSubviews(mainScrollView, statusLabel, popUpUserView)
         mainScrollView.addSubviews(loadingIndicatorActivity, containerView)
         containerView.addSubview(mainTableView)
     }
@@ -115,6 +129,13 @@ class MainView: UIView {
             make.width.equalToSuperview().multipliedBy(0.9)
             make.height.equalToSuperview().dividedBy(3)
         }
+        
+        popUpUserView.snp.makeConstraints { make in
+            make.width.equalTo(containerView.snp.width).multipliedBy(0.95)
+            make.top.equalTo(layoutMarginsGuide.snp.top).inset(20)
+            popUpLeadingConstraint = make.centerX.equalTo(containerView.snp.centerX).constraint
+            make.height.equalTo(tableViewRowHeight)
+        }
     }
     
     private func setupView() {
@@ -122,7 +143,38 @@ class MainView: UIView {
         mainTableView.rowHeight = tableViewRowHeight
     }
     
-    func switchOffIndicatorView() {
-        loadingIndicatorActivity.stopAnimating()
+    // MARK: - Methods
+    
+    func switchOffIndicatorView(to value: Bool) {
+        if value {
+            loadingIndicatorActivity.isHidden = false
+            loadingIndicatorActivity.startAnimating()
+        } else {
+            loadingIndicatorActivity.stopAnimating()
+        }
+    }
+    
+    func showPopUpViewis(_ value: Bool) {
+        UIView.animate(
+            withDuration: 0.4,
+            animations: { [unowned self] in
+                if value {
+                    popUpLeadingConstraint?.deactivate()
+                } else {
+                    popUpLeadingConstraint?.activate()
+                }
+                popUpUserView.center.x += value ? bounds.width : -bounds.width
+            }) { [unowned self] isFinished in
+                if isFinished {
+                    popUpUserView.configureSelectMarkButton(is: true)
+                }
+            }
+    }
+    
+    func configurePopUpView(with model: UserDistanceModel, completion: @escaping () -> Void) {
+        popUpUserView.configurationCell(with: model)
+        popUpUserView.cancelChoiseAction = {
+            completion()
+        }
     }
 }
