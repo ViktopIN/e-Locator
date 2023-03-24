@@ -63,7 +63,7 @@ class MainView: UIView {
     private lazy var popUpUserView: UserInfoCellView = {
         let view = UserInfoCellView()
         view.configureSelectMarkButton(is: true)
-        view.configurePopUpView()
+        view.configureLikePopUpView()
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.lightGray.cgColor
         view.layer.shadowOpacity = 0.3
@@ -172,7 +172,7 @@ class MainView: UIView {
     }
     
     func configurePopUpView(with model: UserDistanceModel, completion: @escaping () -> Void) {
-        popUpUserView.configurationCell(with: model)
+        popUpUserView.configurationView(with: model)
         popUpUserView.cancelChoiseAction = {
             completion()
         }

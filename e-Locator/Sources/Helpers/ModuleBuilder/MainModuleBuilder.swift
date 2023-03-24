@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ModuleBuilderProtocol: AnyObject {
+    static func moduleProvider() -> UIViewController
+}
+
 final class MainModuleBuilder: ModuleBuilderProtocol {
     static func moduleProvider() -> UIViewController {
         let session = URLSessionMock()
@@ -27,6 +31,7 @@ final class MainModuleBuilder: ModuleBuilderProtocol {
             serviceContainer: serviceContainer
         )
         viewController.presenter = presenter
+        
         return viewController
     }
 }

@@ -20,7 +20,7 @@ final class MockModelPseudoUpaterService: PseudoUpdaterServiceProtocol {
     // MARK: - Properties
     
     private var handleArray: [MockUserLocationModel]
-    private var diapason = 0.005...0.01
+    private var diapason = 0.007...0.012
     
     // MARK: - Init
     

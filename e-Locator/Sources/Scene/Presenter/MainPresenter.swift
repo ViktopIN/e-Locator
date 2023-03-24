@@ -14,9 +14,9 @@ protocol MainPresenterProtocol: AnyObject {
     var mainId: String? { get set }
     func amountOfTableViewCell() -> Int
     func tableViewDataProvide() -> [UserDistanceModel]
-    func mainModel() -> UserDistanceModel
-    func updateData()
-    func defineSelectCell(withId: String?) -> Bool
+    func mainModelRecieve() -> UserDistanceModel
+    func updateDataForTableView()
+    func defineSelectedCell(withId: String?) -> Bool
 }
 
 class MainPresenter: MainPresenterProtocol {
@@ -74,7 +74,7 @@ class MainPresenter: MainPresenterProtocol {
         model ?? []
     }
     
-    func mainModel() -> UserDistanceModel {
+    func mainModelRecieve() -> UserDistanceModel {
         requester.stop()
         let returnedModel = model?.first(where: { model in
             model.id == self.mainId
@@ -87,23 +87,23 @@ class MainPresenter: MainPresenterProtocol {
         )
     }
     
-    func updateData() {
+    func updateDataForTableView() {
         updateMainLocation()
         self.model = modelInteractor.providePreparedModel(
             mainUserName: mainUserName,
             mainUserLocation: mainLocation,
             unpreparedModel: unprepairedModel
         )
-        view.reloadMainTableView()
+        view.reloadMainTableView(valideData: false)
     }
     
-    func defineSelectCell(withId: String?) -> Bool {
+    func defineSelectedCell(withId: String?) -> Bool {
         mainId == withId
     }
-
     
     private func updateMainLocation() {
-        if let id = mainId, let unprepairedModel = unprepairedModel  {
+        if let id = mainId,
+           let unprepairedModel = unprepairedModel {
             let model = unprepairedModel.first { fetchingModel in
                 fetchingModel.id == id
             }
@@ -113,11 +113,9 @@ class MainPresenter: MainPresenterProtocol {
             )
             locationService.stop()
         } else {
-            view.switchIndicatorView(to: true)
             locationService.start()
             mainLocation = locationService.currentUserLocation
         }
-
     }
     
     private func fetchData() {
@@ -128,7 +126,6 @@ class MainPresenter: MainPresenterProtocol {
             switch result {
             case .success(let success):
                 unprepairedModel = success
-                
                 updateMainLocation()
                 
                 self.model = modelInteractor.providePreparedModel(
@@ -137,12 +134,12 @@ class MainPresenter: MainPresenterProtocol {
                     unpreparedModel: success
                 )
                 if model == [] {
-                    view.networkError("Wrong data")
+                    view.networkErrorRealise("Wrong data")
                 }
                 view.switchIndicatorView(to: false)
-                view.reloadMainTableView()
+                view.reloadMainTableView(valideData: true)
             case .failure(let failure):
-                view.networkError(failure.localizedDescription)
+                view.networkErrorRealise(failure.localizedDescription)
             }
         }
     }

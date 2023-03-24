@@ -21,7 +21,10 @@ final class MainTableViewCell: UITableViewCell {
     // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(
+            style: style,
+            reuseIdentifier: reuseIdentifier
+        )
         
         setupHierarchy()
         setupLayout()
@@ -45,21 +48,19 @@ final class MainTableViewCell: UITableViewCell {
     
     func configurationCell(with data: UserDistanceModel) {
         id = data.id
-        cellContentView.configurationCell(with: data)
+        cellContentView.configurationView(with: data)
     }
     
-    func conectDataReciever() {
+    func connectDataReciever() {
         guard let recieveDataAction = recieveDataAction,
               let cancelChoiseAction = cancelChoiseAction,
               let id = id
         else {
             return
-            
         }
         cellContentView.recieveDataAction = { name in
             recieveDataAction(name, id)
         }
-        
         cellContentView.cancelChoiseAction = {
             cancelChoiseAction()
         }

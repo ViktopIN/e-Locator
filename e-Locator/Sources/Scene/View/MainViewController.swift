@@ -9,12 +9,12 @@ import UIKit
 import SnapKit
 
 protocol MainViewProtocol: AnyObject {
-    func reloadMainTableView()
+    func reloadMainTableView(valideData: Bool)
     func locationServicesRestrictedState()
     func locationServicesNeededState()
     func promptForAuthorization()
     func switchIndicatorView(to value: Bool)
-    func networkError(_ errorDescription: String)
+    func networkErrorRealise(_ errorDescription: String)
 }
 
 class MainViewController: UIViewController {
@@ -32,7 +32,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
     }
     
@@ -63,23 +62,22 @@ extension MainViewController: UITableViewDataSource {
 
         cell.cancelChoiseAction = { [unowned self] in
             presenter.mainId = nil
-            presenter.updateData()
+            presenter.updateDataForTableView()
             mainView.showPopUpViewis(false)
         }
         cell.recieveDataAction = { [unowned self] (name, id) in
             presenter.mainId = id
             presenter.mainUserName = name
-            mainView.configurePopUpView(with: presenter.mainModel(), completion: {
+            mainView.configurePopUpView(with: presenter.mainModelRecieve(), completion: {
                 guard let cancelChoiseAction = cell.cancelChoiseAction else { return }
                 cancelChoiseAction()
             })
-            presenter.updateData()
+            presenter.updateDataForTableView()
             mainView.showPopUpViewis(true)
         }
         
-        cell.configurationSelectCell(with: presenter.defineSelectCell(withId: cell.id))
-        
-        cell.conectDataReciever()
+        cell.configurationSelectCell(with: presenter.defineSelectedCell(withId: cell.id))
+        cell.connectDataReciever()
         
         return cell
     }
@@ -126,7 +124,7 @@ extension MainViewController: MainViewProtocol {
         }
     }
     
-    func networkError(_ errorDescription: String) {
+    func networkErrorRealise(_ errorDescription: String) {
         DispatchQueue.main.async { [unowned self] in
             let alert = UIAlertController(
                 title: "Something wrong with network service.\n\(errorDescription)",
@@ -157,8 +155,9 @@ extension MainViewController: MainViewProtocol {
         }
     }
     
-    func reloadMainTableView() {
-        DispatchQueue.main.async { [unowned self] in 
+    func reloadMainTableView(valideData: Bool) {
+        DispatchQueue.main.async { [unowned self] in
+            switchIndicatorView(to: valideData)
             mainView.mainTableView.reloadData()
         }
     }

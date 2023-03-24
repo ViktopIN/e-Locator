@@ -14,7 +14,6 @@ struct UserDistanceModel: Equatable {
     let distanceDescription: String
     
     static func == (lhs: UserDistanceModel, rhs: UserDistanceModel) -> Bool {
-           return
-               lhs.id == rhs.id 
+           return lhs.id == rhs.id 
        }
 }

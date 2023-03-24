@@ -17,13 +17,17 @@ final class UserInfoCellView: UIView {
         
     // MARK: - Views
     
-    private lazy var mainStackView = UIStackView.configureStackView(with: .horizontal, spacing: 20)
+    private lazy var mainStackView = UIStackView.configureStackView(
+        with: .horizontal,
+        spacing: 20
+    )
     
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
+        
         return imageView
     }()
     
@@ -34,6 +38,7 @@ final class UserInfoCellView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16)
         label.textColor = .black
+        
         return label
     }()
     
@@ -42,6 +47,7 @@ final class UserInfoCellView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14)
         label.textColor = .lightGray
+        
         return label
     }()
     
@@ -95,8 +101,15 @@ final class UserInfoCellView: UIView {
     
     private func setupHierarchy() {
         addSubview(mainStackView)
-        mainStackView.addArrangedSubviews(avatarImageView, labelStack, favoriteMarkButton)
-        labelStack.addArrangedSubviews(nameLabel, distanceLabel)
+        mainStackView.addArrangedSubviews(
+            avatarImageView,
+            labelStack,
+            favoriteMarkButton
+        )
+        labelStack.addArrangedSubviews(
+            nameLabel,
+            distanceLabel
+        )
     }
     
     private func setupLayout() {
@@ -119,7 +132,7 @@ final class UserInfoCellView: UIView {
     
     // MARK: - Methods
     
-    func configurationCell(with data: UserDistanceModel) {
+    func configurationView(with data: UserDistanceModel) {
         avatarImageView.image = data.image
         nameLabel.text = data.name
         distanceLabel.text = data.distanceDescription
@@ -129,7 +142,7 @@ final class UserInfoCellView: UIView {
         favoriteMarkButton.isSelected = value
     }
     
-    func configurePopUpView() {
+    func configureLikePopUpView() {
         distanceLabel.isHidden = true
     }
 

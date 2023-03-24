@@ -19,11 +19,8 @@ final class ServiceContainer: ServiceContainerProtocol {
     // MARK: - Properties
     
     var networkService: NetworkServiceProtocol
-    
     var interactorService: UserDistanceModelInteractorProtocol
-    
     var locationService: LocationServiceProtocol
-    
     var requesterService: RequesterProtocol
     
     // MARK: - Init

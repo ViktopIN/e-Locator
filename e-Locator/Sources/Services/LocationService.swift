@@ -6,7 +6,6 @@
 //
 
 import CoreLocation
-import CoreMotion
 
 protocol LocationServiceDelegate: AnyObject {
     func authorizationRestricted()

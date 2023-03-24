@@ -9,7 +9,6 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     init(session: URLSession)
-    
     func loadData<T: Codable>(
         from url: URL,
         completionHandler: @escaping (Result<[T], Error>) -> Void
@@ -43,7 +42,6 @@ final class NetworkService: NetworkServiceProtocol {
                 completionHandler(.failure(error))
             }
         }
-        
         task.resume()
     }
 }
